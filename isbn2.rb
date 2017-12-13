@@ -24,15 +24,17 @@ end
  
     # function definition to verifity isbn number
 def valid_10_digit_isbn(isbn_array)
+	#zreo is the first digit to be multiplied im the isbn number, the count is verfiting the isbn number is a 10 or 13 digit
     isbn_number_addition_total = 0
     count_isbn = 10
+    #the isbn is counted and the problem is multiplied and then added and total by digits and the multiplied by the count
     while count_isbn > 1
 	    isbn_array.each do |digits|
 	    isbn_number_addition_total = isbn_number_addition_total + (digits * count_isbn)
 	    count_isbn = count_isbn - 1
     	end
 	end	    	
-    	
+    #after the total is givern the it is divided by 11 with no remainder to valid the isbn, if a remainder is found the isbn is not valid	
  	if isbn_number_addition_total % 11 == 0
    		puts "this is a valid 10 digit isbn number"
    	else
@@ -41,15 +43,17 @@ def valid_10_digit_isbn(isbn_array)
 end
 
 def valid_13_digit_isbn(isbn_array)
+	#zreo is the first digit to be multiplied im the isbn number, the count is verfiting the isbn number is a 10 or 13 digit
 	count = 0
     array_addition_total = 0
+    #the isbn is counted is pulled from the array and then the problem is multiplied and then added and total by digits and the multiplied by the count
     multiply_array = [1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1] 
     isbn_array.each do |digits|
     	array_addition_total = array_addition_total + (digits * multiply_array[count])
         count = count + 1
     end
-
-	if array_addition_total % 10 == 0
+    #after the total is givern the it is divided by 10 with no remainder to valid the isbn, if a remainder is found the isbn is not valid
+	if array _addition_total % 10 == 0
     		puts "this is a valid 13 digit isbn number"
     else
     		puts "this is not a valid 13 isbn number"
